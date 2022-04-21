@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<header th:replace="~{cabecalho :: head('carros')}"> </header>
+<body>
+	<nav th:replace="~{menu}"></nav>
+	<div class="container mt-3">
+		<h3>Carros</h3>
+		<table class="table table-bordered table-sm">
+			<thead>
+				<tr>
+					<th>Fabricante</th>
+					<th>Modelo</th>
+					<th>Cor</th>
+					<th>Ano</th>
+					<th>Motorização</th>
+					<th>Carroceria</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="carro : ${listaCarros}">
+					<td th:text="${carro.getFabricante()}"></td>
+					<td th:text="${carro.getModelo()}"></td>
+					<td th:text="${carro.getCor()}"></td>
+					<td th:text="${carro.getAno()}"></td>
+					<td th:text="${carro.getMotorizacao()}"></td>
+					<td th:text="${carro.getCarroceria()}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="row">
+			<a type="button" class="btn btn-secondary" href='/carro/criar'>Criar Carro </a>
+		</div>
+	</div>
+</body>
+</html>

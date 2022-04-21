@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<header th:replace="~{cabecalho :: head('Criar moto')}"> </header>
+<body>
+	<nav th:replace="~{menu}"></nav>
+	<div class="container mt-3">
+		<h3>Criar moto</h3>
+		<form th:object="${motoDto}" action="/moto" method="POST">
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Fabricante</span> <input type="text"
+							th:field="*{fabricante}" th:errorclass="is-invalid"
+							class="form-control">
+						<div class="invalid-feedback" th:errors="*{fabricante}"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Modelo</span> <input
+							type="text" th:field="*{modelo}" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Cor</span> <input type="text"
+							th:field="*{cor}" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Ano</span> <input
+							type="number" th:field="*{ano}"
+							th:errorclass="is-invalid" class="form-control">
+						<div class="invalid-feedback" th:errors="*{ano}"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Cilindrada</span> <input
+							type="text" th:field="*{cilindrada}"
+							th:errorclass="is-invalid" class="form-control">
+						<div class="invalid-feedback" th:errors="*{cilindrada}"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Assentos</span> <input
+							type="text" th:field="*{assentos}" class="form-control">
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-secondary" type="submit">Criar Moto</button>
+		</form>
+	</div>
+</body>
+</html>
